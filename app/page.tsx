@@ -21,7 +21,7 @@ export default async function Home() {
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between p-4">
-        <h1 className="text-red-600 text-4xl font-bold">GRACE AI</h1>
+        <h1 className="text-red-600 text-4xl font-bold">SANIRA</h1>
         <nav>
           <ul className="flex space-x-4">
             <li>TV Shows</li>

@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, ChevronRightIcon, PlayIcon } from "lucide-react";
+import { PlayIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MovieRow } from "@/components/movie-row";
 import {

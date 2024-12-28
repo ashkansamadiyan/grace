@@ -9,10 +9,12 @@ interface PageProps {
   params: {
     id: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export default async function MoviePage({
   params,
+  searchParams,
 }: PageProps) {
   const movie = await getMovieDetails(params.id);
   return (

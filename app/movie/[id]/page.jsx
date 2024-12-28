@@ -4,16 +4,8 @@ import { ArrowLeft, Heart } from "lucide-react";
 import Link from "next/link";
 import VideoPlayer from "@/components/VideoPlayer";
 
-interface Props {
-  params: {
-    id: string;
-  }
-}
-
 // Define the page component
-const MoviePage = async ({
-  params,
-}: Props) => {
+const MoviePage = async ({ params }) => {
   const movie = await getMovieDetails(params.id);
 
   return (
@@ -72,6 +64,6 @@ const MoviePage = async ({
       </div>
     </div>
   );
-}
+};
 
 export default MoviePage;

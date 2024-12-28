@@ -1,17 +1,22 @@
-// MoviePage.tsx
 import { getMovieDetails, getImageUrl } from "@/lib/tmdb";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Heart } from "lucide-react";
 import Link from "next/link";
 import VideoPlayer from "@/components/VideoPlayer";
 
+// Define the props interface
+interface PageProps {
+  params: {
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
 export default async function MoviePage({
   params,
-}: {
-  params: { id: string };
-}) {
+  searchParams,
+}: PageProps) {
   const movie = await getMovieDetails(params.id);
-
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
       {/* Video Player Section with Gradient Overlay */}
@@ -26,7 +31,6 @@ export default async function MoviePage({
           </Link>
         </div>
       </div>
-
       {/* Movie Details */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid md:grid-cols-[2fr,1fr] gap-8">
@@ -44,9 +48,7 @@ export default async function MoviePage({
                 <Heart className="h-5 w-5 mr-2" /> Add to My List
               </Button>
             </div>
-
             <p className="text-gray-200 leading-relaxed">{movie.overview}</p>
-
             <div className="flex flex-wrap gap-2">
               {movie.genres.map((genre) => (
                 <span
@@ -58,7 +60,6 @@ export default async function MoviePage({
               ))}
             </div>
           </div>
-
           <div className="space-y-4">
             <div className="rounded-lg overflow-hidden shadow-lg">
               <img

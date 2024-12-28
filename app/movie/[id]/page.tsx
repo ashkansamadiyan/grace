@@ -4,16 +4,18 @@ import { ArrowLeft, Heart } from "lucide-react";
 import Link from "next/link";
 import VideoPlayer from "@/components/VideoPlayer";
 
-interface MoviePageProps {
+interface Props {
   params: {
     id: string;
-  };
+  }
 }
 
-export default async function MoviePage({
-  params: { id },
-}: MoviePageProps) {
-  const movie = await getMovieDetails(id);
+// Define the page component
+const MoviePage = async ({
+  params,
+}: Props) => {
+  const movie = await getMovieDetails(params.id);
+
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
       {/* Video Player Section with Gradient Overlay */}
@@ -71,3 +73,5 @@ export default async function MoviePage({
     </div>
   );
 }
+
+export default MoviePage;
